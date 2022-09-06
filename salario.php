@@ -1,72 +1,70 @@
 <?php
 
-    $salario = 1200.00;             
+    $salario = 1000.00;             
     $ir = 0;
     $inss= 0;
     $desc= 0;
+    $insento = "Insento";
+    $grupo;
 
 
 
-    echo "Salário bruto: ".$salario;
-    echo "Desconto de INSS: ".$inss;
-    echo "Desconto de IR: ".$ir;
-    echo "Grupo A ";
-    echo "Desconto de:".$desc;
-    echo "Salário liquido ".$liqui;
-
-    $inss = $salario * 0.075;
-    $inss = $salario * 0.09;
-    $inss = $salario * 0.12;
-    $inss = $salario * 0.14;
+    //$inss = $salario * 0.075;
+    //$inss = $salario * 0.09;
+    //$inss = $salario * 0.12;
+   // $inss = $salario * 0.14;
 
 
-    $ir = $salario *  0.075;
-    $ir = $salario *  0.15;
-    $ir = $salario *  0.225;
-    $ir = $salario *  0.275;
+   // $ir = $salario *  0.075;
+    //$ir = $salario *  0.15;
+   // $ir = $salario *  0.225;
+   // $ir = $salario *  0.275;
 
-    $desc = $salario - ($ir + $inss);
+   // 
 
     if ($salario < 1212) {
        $inss = $salario * 0.075;
+       $grupo = "A";
     }
-    elseif ($salario > 1212.00 && < 2427.35){
+    else if ($salario > 1212.00 && $salario < 2427.35){
         $inss = $salario * 0.09;
-
+        $grupo = "B";
     }
-    elseif ($salario > 2427.36 && < 3641.03){
+    else if ($salario > 2427.36 && $salario < 3641.03){
         $inss = $salario * 0.12;
-
+        $grupo = "C";
     }
-    else ($salario > 3641.04 && < 7087.22){
+    else if($salario > 3641.04 && $salario < 7087.22){
         $inss = $salario * 0.14;
-
+        $grupo = "D";
     }
-    end if
 
-
-    if ($salario < 1903.98) {
-       isento
+    else if ($salario < 1903.98) {
+       $ir = "insento";
     }
-    elseif ($salario > 1903.99 && < 2826.65){
-        $inss = $salario * 0.075;
+    else if ($salario > 1903.99 && $salario < 2826.65){
+        $ir = $salario * 0.075;
 
     }   
-    elseif ($salario > 2826.66 && < 3751.05){
-        $inss = $salario * 0.15;
+    else if ($salario > 2826.66 && $salario < 3751.05){
+        $ir = $salario * 0.15;
 
     }
-    elseif ($salario > 3751.06 && < 4664.68){
-        $inss = $salario * 0.225;
+    else if ($salario > 3751.06 && $salario < 4664.68){
+        $ir = $salario * 0.225;
 
     }
-    else ($salario > 4664.69){
-        $inss = $salario * 0.275;
-
+    else {
+        $ir = $salario * 0.275;
     }
+    $desc = $ir + $inss;
+    $liqui = $salario - $desc;
 
-
-
-
+    echo "Salário bruto: R$ ".$salario;
+    echo "<br><br>Desconto de INSS: R$ ".$inss;
+    echo "<br><br>Desconto de IR: R$ ".$ir;
+    echo "<br><br>Grupo ".$grupo;
+    echo "<br><br>Desconto de: R$ ".$desc;
+    echo "<br><br>Salário liquido: R$ ".$liqui;
 
 ?>
