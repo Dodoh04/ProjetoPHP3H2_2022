@@ -1,5 +1,6 @@
 
 <?php 
+    
     #incluindo o cabeçalho da pagina
     include("cabecalho.php");
 
